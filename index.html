@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIVE RTP SLOT GAMES</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:white;
+}
+
+header{
+    background:linear-gradient(135deg,#ff0080,#7928ca,#0070f3);
+    padding:40px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:3rem;
+    font-weight:800;
+}
+
+header p{
+    margin-top:10px;
+    opacity:.9;
+}
+
+.live-box{
+    margin-top:20px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(255,255,255,.15);
+    padding:10px 20px;
+    border-radius:30px;
+}
+
+.live-dot{
+    width:12px;
+    height:12px;
+    background:red;
+    border-radius:50%;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0;}
+}
+
+.container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 0;
+}
+
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.controls input,
+.controls select{
+    padding:12px 15px;
+    border:none;
+    border-radius:10px;
+    background:#161b22;
+    color:white;
+}
+
+.controls input{
+    flex:1;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#161b22;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+    border:1px solid #222;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px rgba(0,112,243,.4);
+}
+
+.game-img{
+    height:180px;
+    background:linear-gradient(135deg,#ff0080,#7928ca);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.provider{
+    color:#00d4ff;
+    font-size:.9rem;
+}
+
+.game-name{
+    margin:8px 0;
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+.rtp{
+    margin:15px 0;
+}
+
+.bar{
+    width:100%;
+    height:10px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:linear-gradient(90deg,#00ff88,#00d4ff);
+}
+
+.stats{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+    font-size:.9rem;
+}
+
+.btn{
+    width:100%;
+    margin-top:15px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#00d4ff,#0070f3);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#888;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🎰 LIVE RTP SLOT GAMES</h1>
+    <p>Data RTP Live & Popular Slot Games</p>
+
+    <div class="live-box">
+        <div class="live-dot"></div>
+        LIVE RTP UPDATE
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="controls">
+        <input type="text" id="search" placeholder="Cari game...">
+        <select id="filter">
+            <option value="all">Semua RTP</option>
+            <option value="97">97%+</option>
+            <option value="96">96%+</option>
+            <option value="95">95%+</option>
+        </select>
+    </div>
+
+    <div class="grid" id="games">
+
+        <div class="card" data-name="Gates of Olympus" data-rtp="98.4">
+            <div class="game-img">⚡ Gates of Olympus</div>
+            <div class="card-body">
+                <div class="provider">Pragmatic Play</div>
+                <div class="game-name">Gates of Olympus</div>
+                <div class="rtp">RTP Live: 98.4%</div>
+                <div class="bar"><div class="fill" style="width:98.4%"></div></div>
+                <div class="stats">
+                    <span>🔥 Hot</span>
+                    <span>x5000</span>
+                </div>
+                <button class="btn">Main Sekarang</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Sweet Bonanza" data-rtp="97.8">
+            <div class="game-img">🍭 Sweet Bonanza</div>
+            <div class="card-body">
+                <div class="provider">Pragmatic Play</div>
+                <div class="game-name">Sweet Bonanza</div>
+                <div class="rtp">RTP Live: 97.8%</div>
+                <div class="bar"><div class="fill" style="width:97.8%"></div></div>
+                <div class="stats">
+                    <span>🔥 Hot</span>
+                    <span>x21000</span>
+                </div>
+                <button class="btn">Main Sekarang</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Starlight Princess" data-rtp="97.2">
+            <div class="game-img">⭐ Starlight Princess</div>
+            <div class="card-body">
+                <div class="provider">Pragmatic Play</div>
+                <div class="game-name">Starlight Princess</div>
+                <div class="rtp">RTP Live: 97.2%</div>
+                <div class="bar"><div class="fill" style="width:97.2%"></div></div>
+                <div class="stats">
+                    <span>🚀 Trending</span>
+                    <span>x5000</span>
+                </div>
+                <button class="btn">Main Sekarang</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Mahjong Ways 2" data-rtp="96.8">
+            <div class="game-img">🀄 Mahjong Ways 2</div>
+            <div class="card-body">
+                <div class="provider">PG Soft</div>
+                <div class="game-name">Mahjong Ways 2</div>
+                <div class="rtp">RTP Live: 96.8%</div>
+                <div class="bar"><div class="fill" style="width:96.8%"></div></div>
+                <div class="stats">
+                    <span>🔥 Popular</span>
+                    <span>x2000</span>
+                </div>
+                <button class="btn">Main Sekarang</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Lucky Neko" data-rtp="96.1">
+            <div class="game-img">🐱 Lucky Neko</div>
+            <div class="card-body">
+                <div class="provider">PG Soft</div>
+                <div class="game-name">Lucky Neko</div>
+                <div class="rtp">RTP Live: 96.1%</div>
+                <div class="bar"><div class="fill" style="width:96.1%"></div></div>
+                <div class="stats">
+                    <span>⭐ Stable</span>
+                    <span>x2500</span>
+                </div>
+                <button class="btn">Main Sekarang</button>
+            </div>
+        </div>
+
+        <div class="card" data-name="Bonanza Gold" data-rtp="95.5">
+            <div class="game-img">💰 Bonanza Gold</div>
+            <div class="card-body">
+                <div class="provider">Habanero</div>
+                <div class="game-name">Bonanza Gold</div>
+                <div class="rtp">RTP Live: 95.5%</div>
+                <div class="bar"><div class="fill" style="width:95.5%"></div></div>
+                <div class="stats">
+                    <span>📈 Rising</span>
+                    <span>x1500</span>
+                </div>
+                <button class="btn">Main Sekarang</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 LIVE RTP SLOT GAMES Dashboard
+</footer>
+
+<script>
+const search = document.getElementById('search');
+const filter = document.getElementById('filter');
+const cards = document.querySelectorAll('.card');
+
+function updateFilter() {
+    const keyword = search.value.toLowerCase();
+    const minRtp = filter.value;
+
+    cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const rtp = parseFloat(card.dataset.rtp);
+
+        const matchSearch = name.includes(keyword);
+        const matchRtp = minRtp === 'all' || rtp >= parseFloat(minRtp);
+
+        card.style.display = (matchSearch && matchRtp)
+            ? 'block'
+            : 'none';
+    });
+}
+
+search.addEventListener('input', updateFilter);
+filter.addEventListener('change', updateFilter);
+
+// simulasi RTP live update
+setInterval(() => {
+    document.querySelectorAll('.card').forEach(card => {
+        let rtp = parseFloat(card.dataset.rtp);
+        rtp += (Math.random() - 0.5) * 0.3;
+        rtp = Math.max(94, Math.min(99, rtp));
+
+        card.dataset.rtp = rtp.toFixed(1);
+
+        card.querySelector('.rtp').textContent =
+            'RTP Live: ' + rtp.toFixed(1) + '%';
+
+        card.querySelector('.fill').style.width =
+            rtp.toFixed(1) + '%';
+    });
+}, 5000);
+</script>
+
+</body>
+</html>
