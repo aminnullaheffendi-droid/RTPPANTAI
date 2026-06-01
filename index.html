@@ -3,115 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Live Game Statistics</title>
+<title>LIVE RTP SLOT</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background:#111827;
-    color:#fff;
-    padding:20px;
+background:#071320;
+color:#fff;
 }
 
-h1{
-    text-align:center;
-    margin-bottom:25px;
+header{
+padding:20px;
+background:#0c1c2d;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 2px 15px rgba(0,0,0,.3);
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.logo{
+font-size:28px;
+font-weight:bold;
+text-align:center;
+color:#00d4ff;
+}
+
+.controls{
+display:flex;
+gap:10px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+input,select{
+flex:1;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#12253b;
+color:white;
+}
+
+.container{
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:20px;
 }
 
 .card{
-    background:#1f2937;
-    border-radius:15px;
-    overflow:hidden;
+background:#0d1b2a;
+border-radius:20px;
+overflow:hidden;
+transition:.3s;
+box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
 
-.game-img{
-    height:180px;
-    overflow:hidden;
+.card:hover{
+transform:translateY(-5px);
 }
 
-.game-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
 }
 
-.card-body{
-    padding:15px;
+.content{
+padding:15px;
 }
 
 .provider{
-    color:#fbbf24;
-    font-size:14px;
+color:#00d4ff;
+font-size:14px;
 }
 
-.game-name{
-    font-size:20px;
-    font-weight:bold;
-    margin:8px 0;
+.title{
+font-size:22px;
+font-weight:bold;
+margin:8px 0;
 }
 
 .rtp{
-    margin-bottom:10px;
+margin-bottom:10px;
+font-size:18px;
+font-weight:bold;
 }
 
-.bar{
-    height:10px;
-    background:#374151;
-    border-radius:20px;
-    overflow:hidden;
+.progress{
+height:12px;
+background:#1d324d;
+border-radius:50px;
+overflow:hidden;
 }
 
-.fill{
-    height:100%;
-    background:#22c55e;
+.progress-bar{
+height:100%;
+border-radius:50px;
 }
 
-.stats{
-    margin-top:10px;
-    display:flex;
-    justify-content:space-between;
+.info{
+display:flex;
+justify-content:space-between;
+margin-top:12px;
+}
+
+.btn{
+width:100%;
+margin-top:15px;
+padding:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#00bfff,#0066ff);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.footer{
+padding:20px;
+text-align:center;
+color:#888;
 }
 </style>
+
 </head>
 <body>
 
-<h1>Live Game Statistics</h1>
+<header>
+<div class="logo">🔥 LIVE RTP SLOT</div>
 
-<div class="grid">
+<div class="controls">
+<input type="text" id="search" placeholder="Cari Game...">
+<select id="provider">
+<option value="">Semua Provider</option>
+<option value="Pragmatic Play">Pragmatic Play</option>
+<option value="PG Soft">PG Soft</option>
+</select>
+</div>
+</header>
 
-    <div class="card">
-        <div class="game-img">
-            <img src="https://picsum.photos/400/250" alt="Game">
-        </div>
-        <div class="card-body">
-            <div class="provider">Provider A</div>
-            <div class="game-name">Sample Game</div>
-            <div class="rtp">Performance: 98.4%</div>
+<div class="container" id="games"></div>
 
-            <div class="bar">
-                <div class="fill" style="width:98.4%"></div>
-            </div>
+<div class="footer">
+Update RTP Otomatis Setiap 30 Detik
+</div>
 
-            <div class="stats">
-                <span>Trending</span>
-                <span>Rank #1</span>
-            </div>
-        </div>
-    </div>
+<script>
+
+const games = [
+
+{
+name:"Gates of Olympus",
+provider:"Pragmatic Play",
+img:"https://images.unsplash.com/photo-1511512578047-dfb367046420"
+},
+
+{
+name:"Sweet Bonanza",
+provider:"Pragmatic Play",
+img:"https://images.unsplash.com/photo-1511882150382-421056c89033"
+},
+
+{
+name:"Starlight Princess",
+provider:"Pragmatic Play",
+img:"https://images.unsplash.com/photo-1542751371-adc38448a05e"
+},
+
+{
+name:"Mahjong Ways 2",
+provider:"PG Soft",
+img:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+},
+
+{
+name:"Lucky Neko",
+provider:"PG Soft",
+img:"https://images.unsplash.com/photo-1493711662062-fa541adb3fc8"
+},
+
+{
+name:"Treasures of Aztec",
+provider:"PG Soft",
+img:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
+}
+
+];
+
+function generateRTP(){
+return (95 + Math.random()*4.5).toFixed(2);
+}
+
+function getColor(rtp){
+
+if(rtp >= 98)
+return "#00ff88";
+
+if(rtp >= 97)
+return "#ffcc00";
+
+return "#ff5c5c";
+}
+
+function renderGames(){
+
+const container = document.getElementById("games");
+
+const search = document
+.getElementById("search")
+.value.toLowerCase();
+
+const provider = document
+.getElementById("provider")
+.value;
+
+container.innerHTML="";
+
+games.forEach(game=>{
+
+if(
+game.name.toLowerCase().includes(search)
+&&
+(provider==="" || game.provider===provider)
+){
+
+const rtp = generateRTP();
+
+container.innerHTML += `
+<div class="card">
+
+<img src="${game.img}">
+
+<div class="content">
+
+<div class="provider">
+${game.provider}
+</div>
+
+<div class="title">
+${game.name}
+</div>
+
+<div class="rtp">
+RTP Live : ${rtp}%
+</div>
+
+<div class="progress">
+<div class="progress-bar"
+style="
+width:${rtp}%;
+background:${getColor(rtp)};
+">
+</div>
+</div>
+
+<div class="info">
+<span>🔥 Hot</span>
+<span>x5000</span>
+</div>
+
+<button class="btn">
+Main Sekarang
+</button>
 
 </div>
+</div>
+`;
+}
+});
+}
+
+renderGames();
+
+document
+.getElementById("search")
+.addEventListener("keyup",renderGames);
+
+document
+.getElementById("provider")
+.addEventListener("change",renderGames);
+
+setInterval(renderGames,30000);
+
+</script>
 
 </body>
 </html>
